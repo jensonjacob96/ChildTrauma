@@ -55,7 +55,7 @@ def get_score(question, answer):
                 pass
         return total
 
-def process_answer(response: Dict):
+def process_answer(Trauma: Dict):
     severity_score = 0
     import logging
     # Set up logging
@@ -69,7 +69,7 @@ def process_answer(response: Dict):
     )
 
     # Start logging
-    for q, a in response.items():
+    for q, a in Trauma.items():
         logging.info(get_score(q, a))
         severity_score += get_score(q, a)
 
