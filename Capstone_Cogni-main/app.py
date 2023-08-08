@@ -28,18 +28,28 @@ def index():
 
 @app.post('/')
 def get_form_submission():
-    severity = 'GREEN'
+    severity = 'BLUE'
+    recommendation = 'Self guided support'
     data = request.get_json()
     admin_emails = [user['email'] for user in db.Users.find()]
     total_score = process_answer(data)
-    if total_score > 96:
+    if 3 <= total_score <= 4 :
+        severity = 'GREEN'
+        recommendation = 'counselling and self guided support'
+    elif 5 >= total_score <= 6:
+        severity = 'YELLOW'
+        recommendation = 'specialized one on one counselling + self guided support in between sessions'
+    elif 7 >= total_score <= 9:
+        severity = 'ORANGE'
+        recommendation = 'specialized one on one counselling with community care coordinator to explore nutrition and integrative medicine services'
+    elif total_score >= 10:
         severity = 'RED'
-    elif total_score > 48:
-        severity = 'AMBER'
+        recommendation = 'specialized one on one counselling with brainspotting, prepare for EMDR, potential psychedelic assisted therapy. Should look at nutrition and integration medicine'
+    data['recommendation'] = recommendation
     data['severity'] = severity
     data['score'] = total_score
     #data['severity_breakdown'] = breakdown
-    db.response.insert_one(data)
+    db.Youth.insert_one(data)
     msg = Message('Health and Wellness Survey: New Submission Receieved!', recipients=admin_emails)
     msg.body = render_template('cognixrsummary.html', **data)
     msg.html = render_template('cognixrsummary.html', **data)
