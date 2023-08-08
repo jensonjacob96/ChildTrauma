@@ -83,13 +83,19 @@
       <tr>
         <td>
           <h2>Patient Summary</h2>
-          {% if severity == 'GREEN' %}
+          {% if severity == 'BLUE' %}
+          {% set color = 'blue' %}
+          {% set severity_text = 'Blue' %}
+          {% elif severity == 'GREEN' %}
           {% set color = 'green' %}
           {% set severity_text = 'Green' %}
-          {% elif severity == 'AMBER' %}
+          {% elif severity == 'YELLOW' %}
+          {% set color = 'yellow' %}
+          {% set severity_text = 'Yellow' %}
+          {% elif severity == 'ORANGE' %}
           {% set color = 'orange' %}
           {% set severity_text = 'Orange' %}
-          {% elif severity == 'RED' %}
+	  {% elif severity == 'RED' %}
           {% set color = 'red' %}
           {% set severity_text = 'Red' %}
           {% endif %}
