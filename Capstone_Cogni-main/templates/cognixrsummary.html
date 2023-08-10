@@ -79,38 +79,25 @@
     </table>
 
     <!--First Row Severity -->
-    <table role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 0px 30px 30px 60px">
+        <table table role="presentation" border="0" cellpadding="0" cellspacing="10px" width="100%"
+      style="padding: 0px 30px 30px 60px">
       <tr>
         <td>
-          <h2>Patient Summary</h2>
-          {% if severity == 'BLUE' %}
-          {% set color = 'blue' %}
-          {% set severity_text = 'Blue' %}
-          {% elif severity == 'GREEN' %}
-          {% set color = 'green' %}
-          {% set severity_text = 'Green' %}
-          {% elif severity == 'YELLOW' %}
-          {% set color = 'yellow' %}
-          {% set severity_text = 'Yellow' %}
-          {% elif severity == 'ORANGE' %}
-          {% set color = 'orange' %}
-          {% set severity_text = 'Orange' %}
-	  {% elif severity == 'RED' %}
-          {% set color = 'red' %}
-          {% set severity_text = 'Red' %}
-          {% endif %}
-          <div style="display: flex;">
-            <span
-              style="height: 25px; width: 25px; background-color: {{ color }}; border-radius: 50%; display: inline-block;"></span>
-            <div style="margin-left: 5%; display: inline-block;"><strong>Severity: </strong>{{ severity_text }}</div>
-          </div>
+          <h2>Patient info</h2>
         </td>
       </tr>
       <tr>
-	      <p><strong>Recommendation </strong>{{recommendation or 'N/A'}}</p>
+        <td>
+          <p style="margin-top: 0;"><strong>Importance of therapist's cultural background: </strong>{{ background or 'N/A' }}</p>
+          <p><strong>Previous use of medication? </strong>{{medication or 'N/A'}}</p>
+	  <p><strong>Current triggers: </strong>{{trigger or 'N/A'}}</p>
+	  <p><strong>Current feelings: </strong>{{past or 'N/A'}}</p>
+	  <p><strong>Patient self-rating for mental health: </strong>{{poor or 'N/A'}}</p>
+	  <p><strong>Level of effect on mental health: </strong>{{believe or 'N/A'}}</p>
+        </td>
       </tr>
     </table>
-
+    
     <!--Second Row Demographics -->
     <table role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 0 30px 30px 60px">
       <tr>
@@ -143,24 +130,38 @@
     </table>
 
     <!--Thirt Row History -->
-    <table table role="presentation" border="0" cellpadding="0" cellspacing="10px" width="100%"
-      style="padding: 0px 30px 30px 60px">
+<table role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 0px 30px 30px 60px">
       <tr>
         <td>
-          <h2>Patient info</h2>
+          <h2>Patient Summary</h2>
+          {% if severity == 'BLUE' %}
+          {% set color = 'blue' %}
+          {% set severity_text = 'Blue' %}
+          {% elif severity == 'GREEN' %}
+          {% set color = 'green' %}
+          {% set severity_text = 'Green' %}
+          {% elif severity == 'YELLOW' %}
+          {% set color = 'yellow' %}
+          {% set severity_text = 'Yellow' %}
+          {% elif severity == 'ORANGE' %}
+          {% set color = 'orange' %}
+          {% set severity_text = 'Orange' %}
+	  {% elif severity == 'RED' %}
+          {% set color = 'red' %}
+          {% set severity_text = 'Red' %}
+          {% endif %}
+          <div style="display: flex;">
+            <span
+              style="height: 25px; width: 25px; background-color: {{ color }}; border-radius: 50%; display: inline-block;"></span>
+            <div style="margin-left: 5%; display: inline-block;"><strong>Severity: </strong>{{ severity_text }}</div>
+          </div>
         </td>
       </tr>
       <tr>
-        <td>
-          <p style="margin-top: 0;"><strong>Importance of therapist's cultural background: </strong>{{ background or 'N/A' }}</p>
-          <p><strong>Previous use of medication? </strong>{{medication or 'N/A'}}</p>
-	  <p><strong>Current triggers: </strong>{{trigger or 'N/A'}}</p>
-	  <p><strong>Current feelings: </strong>{{past or 'N/A'}}</p>
-	  <p><strong>Patient self-rating for mental health: </strong>{{poor or 'N/A'}}</p>
-	  <p><strong>Level of effect on mental health: </strong>{{believe or 'N/A'}}</p>
-        </td>
+	      <p><strong>Recommendation </strong>{{recommendation or 'N/A'}}</p>
       </tr>
     </table>
+
 
     <!--Third Row Needs -->
     <!--<table table role="presentation" border="0" cellpadding="0" cellspacing="10px" width="100%"
