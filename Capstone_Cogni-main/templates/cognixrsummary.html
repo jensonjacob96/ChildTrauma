@@ -106,6 +106,9 @@
           </div>
         </td>
       </tr>
+      <tr>
+	      <p><strong>Recommendation </strong>{{recommendation or 'N/A'}}</p>
+      </tr>
     </table>
 
     <!--Second Row Demographics -->
@@ -133,8 +136,8 @@
           <p style="margin-top: 0;"><p><strong>Gender: </strong>{{ gender }}</p>
           <p><strong>Age: </strong> {{ age }}</p>
           <p><strong>Country-Province/State: </strong>{{ live }}</p>
-          <p><strong>Ethnicity: </strong>{{ ethinicity }}</p>
-	  <p><strong>Marital status: </strong>{{ marital }}</p>
+          <p><strong>Ethnicity: </strong>{{ ethnic }}</p>
+	  <p><strong>Current status: </strong>{{ status }}</p>
         </td>
       </tr>
     </table>
@@ -144,14 +147,17 @@
       style="padding: 0px 30px 30px 60px">
       <tr>
         <td>
-          <h2>Preferences</h2>
+          <h2>Patient info</h2>
         </td>
       </tr>
       <tr>
         <td>
-          <p style="margin-top: 0;"><strong>Number of sessions preferred: </strong>{{ believe or 'N/A'}}</p>
-          <p><strong>Importance of therapist's cultural background: </strong>{{ therapist or 'N/A' }}</p>
-          <p><strong>Affected by therapist's lack of cultural competence? </strong>{{lack or 'N/A'}}</p>
+          <p style="margin-top: 0;"><strong>Importance of therapist's cultural background: </strong>{{ background or 'N/A' }}</p>
+          <p><strong>Previous use of medication? </strong>{{medication or 'N/A'}}</p>
+	  <p><strong>Current triggers: </strong>{{trigger or 'N/A'}}</p>
+	  <p><strong>Current feelings: </strong>{{past or 'N/A'}}</p>
+	  <p><strong>Patient self-rating for mental health: </strong>{{poor or 'N/A'}}</p>
+	  <p><strong>Level of effect on mental health: </strong>{{believe or 'N/A'}}</p>
         </td>
       </tr>
     </table>
