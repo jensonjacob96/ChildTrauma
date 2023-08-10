@@ -49,7 +49,7 @@ def get_form_submission():
     data['severity'] = severity
     data['score'] = total_score
     #data['severity_breakdown'] = breakdown
-    db.Youth.insert_one(data)
+    db.Trauma.insert_one(data)
     msg = Message('Health and Wellness Survey: New Submission Receieved!', recipients=admin_emails)
     msg.body = render_template('cognixrsummary.html', **data)
     msg.html = render_template('cognixrsummary.html', **data)
