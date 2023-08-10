@@ -32,7 +32,7 @@ def get_form_submission():
     recommendation = 'Self guided support'
     data = request.get_json()
     admin_emails = [user['email'] for user in db.Users.find()]
-    total_score = len(data['ace'])
+    total_score = data['ace'].count('?')
     if total_score > 3 :
         severity = 'GREEN'
         recommendation = 'Counselling and self guided support'
