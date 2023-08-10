@@ -32,19 +32,19 @@ def get_form_submission():
     recommendation = 'Self guided support'
     data = request.get_json()
     admin_emails = [user['email'] for user in db.Users.find()]
-    total_score = process_answer(data)
-    if 3 <= total_score <= 4 :
+    total_score = len(data['ace'])
+    if total_score > 3 :
         severity = 'GREEN'
-        recommendation = 'counselling and self guided support'
-    elif 5 >= total_score <= 6:
+        recommendation = 'Counselling and self guided support'
+    elif total_score > 4:
         severity = 'YELLOW'
-        recommendation = 'specialized one on one counselling + self guided support in between sessions'
-    elif 7 >= total_score <= 9:
+        recommendation = 'Specialized one on one counselling + self guided support in between sessions'
+    elif total_score > 6:
         severity = 'ORANGE'
-        recommendation = 'specialized one on one counselling with community care coordinator to explore nutrition and integrative medicine services'
+        recommendation = 'Specialized one on one counselling with community care coordinator to explore nutrition and integrative medicine services'
     elif total_score >= 10:
         severity = 'RED'
-        recommendation = 'specialized one on one counselling with brainspotting, prepare for EMDR, potential psychedelic assisted therapy. Should look at nutrition and integration medicine'
+        recommendation = 'Specialized one on one counselling with brainspotting, prepare for EMDR, potential psychedelic assisted therapy. Should look at nutrition and integration medicine'
     data['recommendation'] = recommendation
     data['severity'] = severity
     data['score'] = total_score
