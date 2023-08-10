@@ -32,17 +32,6 @@
 - question_slug: E-mail
   type: text
 
-- question_slug: too hard
-  type: single_select
-  answer_scores:
-    '0' : 0
-    '1' : 1
-    '2' : 2
-    '3' : 3
-    '4' : 4
-    '5' : 5
-    '6' : 6
-
 - question_slug: ethinicity
   type: single_select
   answer_scores:
