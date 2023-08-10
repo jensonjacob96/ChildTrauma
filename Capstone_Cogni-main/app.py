@@ -33,13 +33,13 @@ def get_form_submission():
     data = request.get_json()
     admin_emails = [user['email'] for user in db.Users.find()]
     total_score = data['ace'].count('?')
-    if total_score > 3 :
+    if total_score < 5 and total_score > 2 :
         severity = 'GREEN'
         recommendation = 'Counselling and self guided support'
-    elif total_score > 4:
+    elif total_score < 7:
         severity = 'YELLOW'
         recommendation = 'Specialized one on one counselling + self guided support in between sessions'
-    elif total_score > 6:
+    elif total_score < 10:
         severity = 'ORANGE'
         recommendation = 'Specialized one on one counselling with community care coordinator to explore nutrition and integrative medicine services'
     elif total_score >= 10:
